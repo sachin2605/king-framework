@@ -30,11 +30,8 @@ var KingServer = (function () {
             fn(app);
         });
     };
-    KingServer.prototype.start = function (port) {
-        if (port === void 0) { port = 8080; }
-        var app = this._server.build();
-        app.listen(port);
-        return app;
+    KingServer.prototype.build = function () {
+        return this._server.build();
     };
     return KingServer;
 }());

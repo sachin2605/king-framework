@@ -5,8 +5,6 @@ import * as express from "express";
 import * as inversify from "inversify";
 import { InversifyExpressServer } from "inversify-express-utils";
 
-
-
 export class KingServer {
     private readonly _server: InversifyExpressServer;
     private readonly _currentDirectory = process.cwd();
@@ -41,9 +39,7 @@ export class KingServer {
         });
     }
 
-    public start(port: number = 8080): express.Application {
-        const app = this._server.build();
-        app.listen(port);
-        return app;
+    public build(): express.Application {
+        return this._server.build();
     }
 }
